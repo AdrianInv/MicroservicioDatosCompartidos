@@ -1,0 +1,19 @@
+spring:
+ application:  
+  name: ServiviosDatosCompartidos
+ 
+ datasource:
+  url: jdbc:mysql://localhost:3306/datoscompartidos?autoReconnect=true&useSSL=false
+  username: root
+  password: mysql 
+   
+ jpa:    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate: 
+      ddl-auto: update
+   
+      
+
+
+
