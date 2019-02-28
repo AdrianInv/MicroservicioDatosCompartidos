@@ -1,35 +1,63 @@
 package com.integra.datoscompartidos.service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.integra.datoscompartidos.model.DatosCompartidos;
 import com.integra.datoscompartidos.repository.DatosCompartidosRepository;
-import com.integra.datoscompartidos.util.HttpResponse;
 
-@Component
+@Service
 public class DatosCompartidosService {
 	
 	@Autowired
-	DatosCompartidosRepository datosCompartidosRepository;
+	private DatosCompartidosRepository datosCompartidosRepository;
+	
+	final String SUSCRITO = "Suscrito";
+	final String NOSUSCRITO = "No Suscrito";
 	
 	
-	public ResponseEntity<HttpResponse> save(DatosCompartidos datosCompartidos) {
-		DatosCompartidos nuevoDatosCompartidos = datosCompartidosRepository.save(datosCompartidos);
- 
-		
-		if (nuevoDatosCompartidos == null) {
-			
-			return new ResponseEntity<HttpResponse>(
-					new HttpResponse("500", "ERROR", "Task creation failed", nuevoDatosCompartidos),
-					HttpStatus.INTERNAL_SERVER_ERROR);
-		}
- 
-		return new ResponseEntity<HttpResponse>(
-				new HttpResponse("200", "SUCCESS", "Task created successfully", nuevoDatosCompartidos), HttpStatus.OK);
+	public DatosCompartidos buscarDatosCompartidos(String numeroDocumento) {
+		   DatosCompartidos nuevoDatosCompartidos = datosCompartidosRepository.findByNumeroDocumento(numeroDocumento);
+		   return nuevoDatosCompartidos;
 	}
 	
+	public Boolean suscribir(DatosCompartidos datosCompartidos) {
+		boolean resultado = false;
+		DatosCompartidos nuevoDatosCompartidos = buscarDatosCompartidos(datosCompartidos.getNumerodocumento());
+		if (nuevoDatosCompartidos == null) {
+			DatosCompartidos datosCompartidosSuscritos = datosCompartidosRepository.save(datosCompartidos);
+			if (datosCompartidosSuscritos != null)
+				resultado = true;
+		}else{	
+			String fechaCancelacion = nuevoDatosCompartidos.getFechacancelacion();
+			if (fechaCancelacion !=null ) {
+				String fechaCancelacionNueva = null;
+				SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
+				String fechaNuevaSuscripcion = format.format( new Date()   );
+				int valor = datosCompartidosRepository.updateRenuevaSuscripcionByNumeroDocumento(fechaNuevaSuscripcion, fechaCancelacionNueva, SUSCRITO, datosCompartidos.getNumerodocumento());
+				if (valor > 0)
+					resultado = true;
+			}
+		}
+        return resultado;
+	}
+	
+	
+	public Boolean desuscribir(DatosCompartidos datosCompartidos){
+		String numeroDocumento = datosCompartidos.getNumerodocumento();
+		DatosCompartidos nuevoDatosCompartidos = datosCompartidosRepository.findByNumeroDocumento(numeroDocumento);
+		boolean resultado = false;
+		if (nuevoDatosCompartidos != null) {
+			SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
+			String fechaCancelacionCadena = format.format( new Date()   );
+			int valor = datosCompartidosRepository.updateCancelacionByNumeroDocumento(fechaCancelacionCadena,NOSUSCRITO, numeroDocumento);
+			if (valor > 0)
+				resultado = true;
+		}
+		return resultado;
+	}
 
 }
