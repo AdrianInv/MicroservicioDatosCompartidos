@@ -1,0 +1,25 @@
+spring:
+ application:  
+  name: ServiviosDatosCompartidos
+ 
+ datasource:
+  url: jdbc:mysql://datoscompartidos.ctmgzzmk7exo.us-east-2.rds.amazonaws.com:3306/datoscompartidos?autoReconnect=true&useSSL=false
+  username: masterDB
+  password: 1hqbcu3913
+   
+ jpa:    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        id:
+          new_generator_mappings: false
+        hbm2ddl:
+          auto:  validate 
+    hibernate: 
+      ddl-auto: update
+   
+server:
+    servlet:
+      context-path: /datoscompartidos
+
+
+
