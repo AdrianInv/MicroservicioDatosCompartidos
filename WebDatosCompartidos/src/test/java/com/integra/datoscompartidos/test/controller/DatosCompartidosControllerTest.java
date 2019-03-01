@@ -6,7 +6,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
-
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,7 +21,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.integra.datoscompartidos.controller.DatosCompartidosController;
 import com.integra.datoscompartidos.model.DatosCompartidos;
-import com.integra.datoscompartidos.repository.DatosCompartidosRepository;
 import com.integra.datoscompartidos.service.DatosCompartidosService;
 
 
@@ -37,33 +35,28 @@ public class DatosCompartidosControllerTest {
 	@MockBean
 	private DatosCompartidosService datosCompartidosService;
 	
-	@MockBean
-	private DatosCompartidosRepository datosCompartidosRepository;
-	
+		
 	static DatosCompartidos datoCompartido;
 	
 	@BeforeClass
 	public static void beforeClass() {
 			datoCompartido = new DatosCompartidos (null,"DNI","70432003","20190226",null, "suscrito", "AFP INTEGRA", "WEB");
+			
 	}
 	
-	/*
-	 * @Test public void testSuscribirClienteRespuestaOk() throws Exception {
-	 * 
-	 * when(datosCompartidosService.buscarDatosCompartidos(
-	 * DatosCompartidosControllerTest.datoCompartido.getNumerodocumento())).
-	 * thenReturn(DatosCompartidosControllerTest.datoCompartido);
-	 * when(datosCompartidosService.suscribir(DatosCompartidosControllerTest.
-	 * datoCompartido)).thenReturn(true);
-	 * 
-	 * ObjectMapper mapper = new ObjectMapper();
-	 * this.mockMvc.perform(post("/suscribir")
-	 * .contentType(MediaType.APPLICATION_JSON)
-	 * .content(mapper.writeValueAsString(DatosCompartidosControllerTest.
-	 * datoCompartido))) .andExpect(status().isOk());
-	 * 
-	 * }
-	 */
+	@Test
+	public void testSuscribirClienteRespuestaOk() throws Exception {
+	  	  
+	   when(datosCompartidosService.buscarDatosCompartidos(any())).thenReturn(DatosCompartidosControllerTest.datoCompartido);
+	   when(datosCompartidosService.suscribir(any())).thenReturn(true);
+	   
+	   ObjectMapper mapper = new ObjectMapper();
+	   this.mockMvc.perform(post("/suscribir")
+	                    .contentType(MediaType.APPLICATION_JSON)
+	                    .content(mapper.writeValueAsString(DatosCompartidosControllerTest.datoCompartido)))
+	            .andExpect(status().isOk());
+
+	}
 	
 	@Test
 	public void testSuscribirErrorClienteNoEncontrado() throws Exception {
@@ -93,23 +86,19 @@ public class DatosCompartidosControllerTest {
 
 	}
 	
-	/*
-	 * @Test public void testDesuscribirClienteRespuestaOk() throws Exception {
-	 * 
-	 * when(datosCompartidosService.buscarDatosCompartidos(
-	 * DatosCompartidosControllerTest.datoCompartido.getNumerodocumento())).
-	 * thenReturn(DatosCompartidosControllerTest.datoCompartido);
-	 * when(datosCompartidosService.desuscribir(DatosCompartidosControllerTest.
-	 * datoCompartido)).thenReturn(true);
-	 * 
-	 * ObjectMapper mapper = new ObjectMapper();
-	 * this.mockMvc.perform(post("/desuscribir")
-	 * .contentType(MediaType.APPLICATION_JSON)
-	 * .content(mapper.writeValueAsString(DatosCompartidosControllerTest.
-	 * datoCompartido))) .andExpect(status().isOk());
-	 * 
-	 * }
-	 */
+	@Test
+	public void testDesuscribirClienteRespuestaOk() throws Exception {
+	  	  
+	   when(datosCompartidosService.buscarDatosCompartidos(any())).thenReturn(DatosCompartidosControllerTest.datoCompartido);
+	   when(datosCompartidosService.desuscribir(any())).thenReturn(true);
+	   
+	   ObjectMapper mapper = new ObjectMapper();
+	   this.mockMvc.perform(post("/desuscribir")
+	                    .contentType(MediaType.APPLICATION_JSON)
+	                    .content(mapper.writeValueAsString(DatosCompartidosControllerTest.datoCompartido)))
+	            .andExpect(status().isOk());
+
+	}
 	
 	@Test
 	public void testDesuscribirErrorClienteNoEncontrado() throws Exception {
