@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
-Implementation-Title: ServiciosDatosCompartidos
-Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Title: corporativo-sura-servicio
+Implementation-Version: 1.0
 Built-By: NP000238
-Implementation-Vendor-Id: com.integra.datoscompartidos
+Implementation-Vendor-Id: com.sura.corporativo
 Build-Jdk: 1.8.0_60-ea
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
- ot-starter-parent/ServiciosDatosCompartidos
+ ot-starter-parent/coorporativo-sura-servicio
 Created-By: Maven Integration for Eclipse
 

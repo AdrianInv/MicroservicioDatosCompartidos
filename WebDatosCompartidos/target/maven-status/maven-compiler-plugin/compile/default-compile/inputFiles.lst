@@ -1,7 +1,10 @@
-C:\Users\NP000238\Downloads\WebDatosCompartidos\src\main\java\com\integra\datoscompartidos\util\HttpResponse.java
-C:\Users\NP000238\Downloads\WebDatosCompartidos\src\main\java\com\integra\datoscompartidos\model\DatosCompartidos.java
-C:\Users\NP000238\Downloads\WebDatosCompartidos\src\main\java\com\integra\datoscompartidos\ServiciosDatosCompartidosApplication.java
-C:\Users\NP000238\Downloads\WebDatosCompartidos\src\main\java\com\integra\datoscompartidos\config\ResourceConfig.java
-C:\Users\NP000238\Downloads\WebDatosCompartidos\src\main\java\com\integra\datoscompartidos\repository\DatosCompartidosRepository.java
-C:\Users\NP000238\Downloads\WebDatosCompartidos\src\main\java\com\integra\datoscompartidos\service\DatosCompartidosService.java
-C:\Users\NP000238\Downloads\WebDatosCompartidos\src\main\java\com\integra\datoscompartidos\controller\DatosCompartidosController.java
+C:\Users\NP000238\Downloads\WebDatosCompartidos\src\main\java\com\sura\corporativo\model\DatosCompartidos.java
+C:\Users\NP000238\Downloads\WebDatosCompartidos\src\main\java\com\sura\corporativo\util\SecretBean.java
+C:\Users\NP000238\Downloads\WebDatosCompartidos\src\main\java\com\sura\corporativo\repository\DatosCompartidosRepository.java
+C:\Users\NP000238\Downloads\WebDatosCompartidos\src\main\java\com\sura\corporativo\util\HttpResponse.java
+C:\Users\NP000238\Downloads\WebDatosCompartidos\src\main\java\com\sura\corporativo\config\DatasourceConfiguration.java
+C:\Users\NP000238\Downloads\WebDatosCompartidos\src\main\java\com\sura\corporativo\controller\DatosCompartidosController.java
+C:\Users\NP000238\Downloads\WebDatosCompartidos\src\main\java\com\sura\corporativo\service\DatosCompartidosService.java
+C:\Users\NP000238\Downloads\WebDatosCompartidos\src\main\java\com\sura\corporativo\config\SecretConfiguration.java
+C:\Users\NP000238\Downloads\WebDatosCompartidos\src\main\java\com\sura\corporativo\util\SecretParameter.java
+C:\Users\NP000238\Downloads\WebDatosCompartidos\src\main\java\com\sura\corporativo\ServiciosSuraCorporativoApplication.java

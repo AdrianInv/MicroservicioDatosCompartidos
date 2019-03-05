@@ -4,10 +4,10 @@
 	<modelVersion>4.0.0</modelVersion>
 	
 	
-	<groupId>com.integra.datoscompartidos</groupId>
-	<artifactId>ServiciosDatosCompartidos</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>ServiciosDatosCompartidos</name>
+	<groupId>com.sura.corporativo</groupId>
+	<artifactId>coorporativo-sura-servicio</artifactId>
+	<version>1.0</version>
+	<name>corporativo-sura-servicio</name>
 	<description>Demo project for Spring Boot</description>
 	
 	<parent>
@@ -75,7 +75,18 @@
 			
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
 		
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-secretsmanager</artifactId>
+		    <version>1.11.337</version>
+		</dependency>
 	</dependencies>
 	
 	
