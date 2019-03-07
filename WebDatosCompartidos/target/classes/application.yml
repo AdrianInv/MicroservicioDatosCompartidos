@@ -1,11 +1,11 @@
 spring:
  application:  
-  name: datos-compartidos-servicio
+  name: corporativo-sura-servicio
  
  datasource:
-  url: jdbc:mysql://datoscompartidos.ctmgzzmk7exo.us-east-2.rds.amazonaws.com:3306/datoscompartidos?autoReconnect=true&useSSL=false
+  url: jdbc:mysql://suracorporativo.ctmgzzmk7exo.us-east-2.rds.amazonaws.com:3306/SuraCorporativo?autoReconnect=true&useSSL=false
   username: masterDB
-  password: 1hqbcu3913
+  password: Suraperu1+
    
  jpa:    properties:
       hibernate:
@@ -20,6 +20,10 @@ spring:
 server:
     servlet:
       context-path: /datoscompartidos
+      
+parametro:
+  secretname: webapp-corporativo-sura/secrets
+  region: us-west-2      
 
 
 

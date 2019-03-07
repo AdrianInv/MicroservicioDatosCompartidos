@@ -1,0 +1,6 @@
+projectKey=my:sura-corporativo
+serverUrl=http://localhost:9000
+serverVersion=7.1.0.11001
+dashboardUrl=http://localhost:9000/dashboard/index/my:sura-corporativo
+ceTaskId=AWlUrs17_gS7Z2XGURlF
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AWlUrs17_gS7Z2XGURlF
