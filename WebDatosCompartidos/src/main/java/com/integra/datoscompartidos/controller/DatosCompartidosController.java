@@ -19,7 +19,7 @@ public class DatosCompartidosController {
 	private DatosCompartidosService datosCompartidosService;
 	
 	@PostMapping("/suscribir")
-	public ResponseEntity<HttpResponse> suscribirDatosCompartidos(@RequestBody DatosCompartidos datosCompartidos) {
+	public ResponseEntity<HttpResponse> suscribirDatosCompartidoz(@RequestBody DatosCompartidos datosCompartidos) {
 		Boolean resultado = datosCompartidosService.suscribir(datosCompartidos);
 		if (resultado)
 			 return new ResponseEntity<HttpResponse>( new HttpResponse("200", "SUCCESS","Cliente Suscrito"), HttpStatus.OK);
